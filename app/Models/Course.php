@@ -21,4 +21,8 @@ class Course extends Model
     public function questions() {
         return $this->hasMany(CourseQuestion::class, 'course_id', 'id');
     }
+
+    public function students() {
+        return $this->belongsToMany(User::class, 'course_students', 'course_id', 'user_id');
+    }
 }

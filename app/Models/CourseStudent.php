@@ -13,4 +13,6 @@ class CourseStudent extends Model
     protected $guarded = [
         'id',
     ];
+
+
 }
