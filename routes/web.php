@@ -19,6 +19,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::prefix('dashboard')->name('dashboard.')->group(function() {
+        // rute untuk digunakan menambah data kelas, mengedit, menghapus, dsb.
+        // rute yg bisa digunakan sebagai role teacher
         Route::resource('courses', CourseController::class)->middleware('role:teacher');
     });
 
