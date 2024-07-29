@@ -22,9 +22,11 @@ Route::middleware('auth')->group(function () {
         // rute untuk digunakan menambah data kelas, mengedit, menghapus, dsb.
         // rute yg bisa digunakan sebagai role teacher
         Route::resource('courses', CourseController::class)->middleware('role:teacher');
+
+        Route::get('/learning', [LearningController::class, 'index'])->middleware('role:student')->name('learning.index');
     });
 
-    Route::get('/learning', [LearningController::class, 'index'])->middleware('role:student')->name('learning.index');
+
 });
 
 require __DIR__.'/auth.php';
